@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Password generator</title>
+</head>
+<body>
+
+    <div class="wrapper">
+        <header class="header">
+            <p class="header-word">Password Generator</p>
+        </header>
+        <div class="output">
+            <span class="password" id="password">PTx1f5DaFX</span>
+            <button class="copy-btn" id="copyBtn" type="button" aria-label="Copy password">
+                📋
+            </button>
+        </div>
+        <div class="wrapper-bot">
+        <div class="length">
+            <div class="length-row">
+                <p class="length-title">Character Length</p>
+                <span class="length-value" id="lengthValue">10</span>
+            </div>
+
+            <input type="range" class="length-range" id="lengthRange" min="4" max="20" value="10">
+        </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="checkbox" id="upper" checked>
+                        <label for="upper">Include Uppercase Letters</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="lower" checked> 
+                        <label for="lower">Include Lowercase Letters</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="numbers" checked> 
+                        <label for="numbers">Include Numbers</label>
+                    </div>
+
+                    <div class="option">
+                        <input type="checkbox" id="symbols" checked>
+                        <label for="symbols">Include Symbols</label>
+                    </div>
+                </div>
+                
+            <div class="strength">
+                <p class="strength-title">STRENGTH</p>
+                
+
+                <div class="bars" id="bars">
+                    <span class="strength-text" id="strengthText">MEDIUM</span>
+                    <span class="bar" data-i="1"></span>
+                    <span class="bar" data-i="2"></span>
+                    <span class="bar" data-i="3"></span>
+                    <span class="bar" data-i="4"></span>
+                </div>
+            </div>
+
+            <button class="generator-btn" id="generatorBtn" type="button">GENERATE →</button>
+        </div>
+        </div>
+    <script src="js/app.js"></script>
+</body>
+</html>
