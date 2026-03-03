@@ -26,7 +26,7 @@ const LOWER = "abcdefghijklmnopqrstuvwxyz";
 const NUMS = "0123456789";
 const SYMS = "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
-
+// Функції
 // функція генерації пароля
 function generatorPass() {
     const length = Number(lengthRangeEl.value);
@@ -88,7 +88,7 @@ function generatorPass() {
 
 // функція рахує strength
 function calculateStrength(length, useUpper, useLower, useNums, useSyms) {
-    const typesCount = [length, useUpper, useLower, useNums, useSyms].filter(Boolean).length
+    const typesCount = [useUpper, useLower, useNums, useSyms].filter(Boolean).length
 
     // filter(Boolean) - Видаляє всі "false" значення з масиву
 
@@ -110,12 +110,12 @@ function calculateStrength(length, useUpper, useLower, useNums, useSyms) {
 
 
 // функція оновлює UI
-function updateStrengthUI(Level) {
+function updateStrengthUI(level) {
     const labels = ["WEAK", "MEDIUM", "STRONG", "VERY STRONG"];
     strengthTextEl.textContent = labels[level - 1];
 
     bars.forEach((bar, index) => {
-        if (index > level) {
+        if (index < level) {
             bar.style.backgroundColor = "#A4FFAF";
             bar.style.borderColor = "#A4FFAF";
 
@@ -130,9 +130,45 @@ function updateStrengthUI(Level) {
 
 
 // функція копіювання пароля
-function copyPass() {
-    
+async function copyPass() { // асинхронна функція
+    const text = passwordEl.textContent.trim();
+    if (!text || text === "Select options") return;
+
+    try {
+        await navigator.clipboard.writeText(text);
+        copyBtn.textContent = "✅";
+        setTimeout(() => (copyBtn.textContent = "📋"), 800);
+    }
+    catch (e) {
+        alert("copy faild.Try manually.");
+    }
+
+    // trim() - видаляє пробіли з паочатку і кінця рядка
+    // writeText() - копібє текст в буфер обміну
+    // setTimeout() - виконує код через певний час
 }
+
+// події 
+// range: показувати значення
+lengthRangeEl.addEventListener("input", () => {
+    lengthValueEl.textContent = lengthValueEl.value;
+
+    // оновлення strength на льоту (якщо обрані опції)
+    const length = Number(lengthRangeEl.value);
+    const level = calculateStrength(length, upperEl.checked, lowerEl.checked, numbersEl.checked, symbolsEl.checked);
+
+    updateStrengthUI(level);
+});
+
+// кнопка generate
+generateBtn.addEventListener("click", generatorPass);
+
+// кнопка copy
+copyBtn.addEventListener("click", copyPass);
+
+// старт
+lengthRangeEl.textContent = lengthRangeEl.value;
+generatorPass();
 
 
 

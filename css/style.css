@@ -234,23 +234,3 @@ body {
 .generator-btn:active {
     transform: scale(0.9);
 }
-
-/* VERY WEAK */
-#bar1 {
-    background: var(--strength-strong);
-}
-
-/* WEAK */
-#bar1, #bar2 {
-    background: #F8CD65;
-}
-
-/* MEDIUM */
-#bar1, #bar2, #bar3 {
-    background: #FB7C58;
-}
-
-/* STRONG */
-#bar1, #bar2, #bar3, #bar4 {
-    background: var(--strenth-weak);
-}
