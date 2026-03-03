@@ -40,7 +40,7 @@ function updateStrengthUI() {
 
 // функція копіювання пароля
 function copyPass() {
-
+    
 }
 
 
