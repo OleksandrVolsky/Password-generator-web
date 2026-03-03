@@ -112,12 +112,14 @@ function calculateStrength(length, useUpper, useLower, useNums, useSyms) {
 // функція оновлює UI
 function updateStrengthUI(level) {
     const labels = ["WEAK", "MEDIUM", "STRONG", "VERY STRONG"];
+    const colors = ["#F64A4A", "#FB7C58", "#F8CD65", "#A4FFAF"]
+
     strengthTextEl.textContent = labels[level - 1];
 
     bars.forEach((bar, index) => {
         if (index < level) {
-            bar.style.backgroundColor = "#A4FFAF";
-            bar.style.borderColor = "#A4FFAF";
+            bar.style.backgroundColor = colors[level - 1];
+            bar.style.borderColor = colors[level - 1];
 
             //  forEach - проходиться по кожному елементу масиву і виконує функцію для кожного з них
         }
@@ -151,7 +153,7 @@ async function copyPass() { // асинхронна функція
 // події 
 // range: показувати значення
 lengthRangeEl.addEventListener("input", () => {
-    lengthValueEl.textContent = lengthValueEl.value;
+    lengthValueEl.textContent = lengthRangeEl.value;
 
     // оновлення strength на льоту (якщо обрані опції)
     const length = Number(lengthRangeEl.value);
@@ -167,7 +169,7 @@ generateBtn.addEventListener("click", generatorPass);
 copyBtn.addEventListener("click", copyPass);
 
 // старт
-lengthRangeEl.textContent = lengthRangeEl.value;
+lengthValueEl.textContent = lengthRangeEl.value;
 generatorPass();
 
 
