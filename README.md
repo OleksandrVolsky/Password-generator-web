@@ -12,13 +12,6 @@ This application allows users to create customizable passwords with real-time st
 
 ---
 
-## 🚀 Live Demo
-
-👉 Add your GitHub Pages link here  
-Example: https://your-username.github.io/password-generator/
-
----
-
 ## ✨ Features
 
 - Adjustable password length (4–20 characters)
