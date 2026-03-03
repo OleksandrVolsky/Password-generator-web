@@ -8,11 +8,23 @@
 }
 
 :root {
-    --primary-color: #24232c;
+    --primary-color: #0C0B13;
+    --bg-card: #24232C;
+    --bg-stringth: #18171F;
+
+    --text-main: #FFFFFF;
+    --text-ligth: #E6E5EA;
+    --text-muted: #817D92;
+
+    /* Кольори для ідекатора сили */
+    --strenth-weak: #F64A4A;
+    --strength-medium: #FB7C58;
+    --strength-good: #F8CD65;
+    --strength-strong: #A4FFAF;
 }
 
 body {
-    background: #000;
+    background: var(--primary-color);
 
     display: flex;
     justify-content: center;
@@ -27,7 +39,7 @@ body {
 }
 
 .header-word {
-    color: gray;
+    color: var(--text-muted);
 }
 
 .wrapper {
@@ -51,11 +63,11 @@ body {
 
     height: 50px;
 
-    background: var(--primary-color);
+    background: var(--bg-card);
 }
 
 .password {
-    color: #fff;
+    color: var(--text-main);
     font-weight: 600;
 }
 
@@ -76,7 +88,7 @@ body {
     padding: 20px;
     height: 360px;
 
-    background: var(--primary-color);
+    background: var(--bg-card);
 
     display: flex;
     flex-direction: column;
@@ -91,7 +103,7 @@ body {
     justify-content: space-between;
     margin-bottom: 20px;
 
-    color: #fff;
+    color: var(--text-ligth);
 }
 
 .length-title {
@@ -100,7 +112,7 @@ body {
 }
 
 .length-value {
-    color: aquamarine;
+    color: var(--strength-strong);
     font-weight: 600;
     font-size: 24px;
 }
@@ -110,7 +122,7 @@ body {
     -webkit-appearance: none;
     width: 100%;
     height: 8px;
-    background: #18171f;
+    background: var(--bg-stringth);
     border-radius: 10px;
     outline: none;
     cursor: pointer;
@@ -120,7 +132,7 @@ body {
     appearance: none;
     width: 18px;
     height: 18px;
-    background: #fff;
+    background: var(--text-ligth);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -130,7 +142,7 @@ body {
     flex-direction: column;
     gap: 10px;
 
-    color: #fff;
+    color: var(--text-ligth);
     font-size: 12px;
 }
 .option {
@@ -146,7 +158,7 @@ body {
     width: 18px;
     height: 18px;
 
-    border: 2px solid aquamarine;
+    border: 2px solid var(--strength-strong);
     cursor: pointer;
 
     display: grid;
@@ -159,7 +171,7 @@ body {
     height: 10px;
     transform: scale(0);
     transition: 0.2s ease-in-out;
-    background-color: aquamarine;
+    background: var(--strength-strong);
 }
 
 .option input[type="checkbox"]:checked::before {
@@ -177,16 +189,16 @@ body {
 
     padding: 10px;
 
-    background: #000;
+    background: var(--primary-color);
 }
 
 .strength-title {
-    color: #ababab;
+    color: var(--text-ligth);
     font-size: 12px;
 }
 
 .strength-text {
-    color: #fff;
+    color: var(--text-main);
     display: flex;
     align-items: center;
 }
@@ -200,7 +212,7 @@ body {
 .bar {
     width: 10px;
     height: 25px;
-    border: 1px solid #fff;
+    border: 1px solid var(--text-main);
 }
 
 .generator-btn {
@@ -212,7 +224,7 @@ body {
     margin-bottom: 10px;
     border: none;
 
-    background-color: aquamarine;
+    background: var(--strength-strong);
 }
 
 .generator-btn:hover {
